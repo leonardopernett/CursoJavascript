@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>fetch</title>
+  </head>
+  <body>
+   
+
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                    <button class="btn btn-danger  w-100" onclick="traer()">Obtener</button>
+                    <div class="mt-5" id="contenido">
+                     
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+        <script>
+            var contenido = document.querySelector('#contenido')
+            traer = function(){
+            
+                // fetch('text.txt').
+                // then((data) => data.text()).
+                // then((data)=> {
+                //     contenido.innerHTML = ` ${data}`;
+                // })
+
+                fetch('https://randomuser.me/api/')
+                .then((data) => data.json())
+                .then((data)=> {
+
+                   contenido.innerHTML =`   
+                   <img src="${data.results[0].picture.large} " alt="" class="img-fluid rounded-circle">
+                   <p>Nombre: ${data.results[0].name.first} </p>
+                   
+                   
+                    
+                    
+                    ` ;
+                })
+            }
+        </script>
+  </body>
+</html>

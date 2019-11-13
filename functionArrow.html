@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1 id="saludo"></h1>
+
+<h1 id="sumar">resultado de la suma es: </h1>
+
+
+    <script>
+       var saludo = document.getElementById('saludo');
+       var suma = document.getElementById('sumar');
+       
+    //    saludar = function(name){
+    //        return 'hola ' + name;
+    //    }
+
+     //Function Arrow
+     
+     var saludar = (name) => 'hola ' + name ;
+     saludo.innerHTML = saludar('leonardo pernett');
+
+
+     //function arrow 
+     var sumando = (num1, num2) => {
+         var num3 = 15;
+       return  num1 + num2 + num3;
+
+     }
+
+     sumar.innerHTML += sumando(5,9);
+    </script>
+</body>
+</html>

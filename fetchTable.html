@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>fetch</title>
+  </head>
+  <body>
+   
+
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                    <button class="btn btn-danger  w-100" onclick="traer()">Obtener Datos</button>
+                    <div class="mt-5" >
+
+                            <table class="table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Estado</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="contenido">
+                                           
+                                            
+                                              
+                                          </tbody>
+                                  </table>
+                      </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+        <script>
+            var contenido = document.querySelector('#contenido')
+            traer = function(){
+               fetch('tabla.json')
+               .then((data)=> data.json())
+               .then((datos)=> {
+
+                   tabla(datos)
+               })
+            }
+
+
+         function tabla(datos){
+
+                for(let indice of datos){
+
+                   contenido.innerHTML += ` 
+                        <tr>
+                        <th scope="row">${indice.id}</th>
+                        <td>${indice.nombre}</td>
+                        <td>${indice.email}</td>
+                        <td>${indice.estado ? 'activo': 'eliminado'}</td>
+                        </tr>
+                        ` 
+                }
+            }
+        </script>
+  </body>
+</html>
